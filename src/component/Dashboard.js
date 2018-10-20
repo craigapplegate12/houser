@@ -23,13 +23,24 @@ class Dashboard extends Component {
     .catch(err => alert(`Cannot get Houses error: ${err}`))
    //this.props.getHomes(this.state.houses)
   }
+  // updateDataStoreFN() {
+  //   axios.get('http://localhost:5001/api/houses')
+  //   console.log('updated')
+  //   .then( res => {
+  //     this.setState({ houses: res.data });
+  //   })
+  //   .catch ((err) => {
+  //     console.log('error', err)
+  //   })
+  // }
+  // }
 
   render() {
     const properties = this.state.houses.map(e=> {
       const name= e.property_name;
-      const address = e.address;
+      const address = e.property_address;
       const city = e.city;
-      const geographicState = e.state;
+      const geographicState = e.location_state;
       const zip = e.zip_code;
     return House(name, address, city, geographicState, zip )
     }

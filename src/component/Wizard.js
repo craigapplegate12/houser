@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 
 class Wizard extends Component {
@@ -19,6 +20,7 @@ class Wizard extends Component {
     this.changeGeographicState = this.changeGeographicState.bind(this);
     this.changeZipCode = this.changeZipCode.bind(this);
     this.clearState = this.clearState.bind(this);
+    this.submitProperty = this.submitProperty.bind(this);
   }
   changeName(event){
     this.setState({name: event.target.value});
@@ -50,6 +52,21 @@ class Wizard extends Component {
   })
   console.log(this.state)
   }
+  submitProperty(){
+    return axios.post('/api/houses', {
+      name: this.state.name,
+      address: this.state.address,
+      city: this.state.city,
+      state: this.state.geographicState,
+      zip: this.state.zipCode
+    })
+    .then (() => {
+      this.clearState();
+    })
+    .catch(err => {
+      console.log(err, 'error');
+    })
+  }
 //<input type="text" value={this.state.imageURL} onChange={this.handleChangeURL}/>
   render() {
     return (
@@ -60,6 +77,7 @@ class Wizard extends Component {
           <input type="text" value={this.state.city} onChange={this.changeCity} placeholder='City'></input>
           <input type="text" value={this.state.geographicState} onChange={this.changeGeographicState} placeholder='State'></input>
           <input type="text" value={this.state.zipCode} onChange={this.changeZipCode} placeholder='Zip Code'></input>
+          <div><Link to={'/'}><button onClick={this.submitProperty}>Complete</button></Link>  </div>
           <div><Link to={'/'}><button onClick={this.clearState}>Cancel</button></Link>  </div>
       </div>
     );

@@ -1,0 +1,1 @@
+Insert into Houser (property_name, property_address, city, location_state, zip_code) VALUES ($1, $2, $3, $4, $5 );

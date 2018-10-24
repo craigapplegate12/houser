@@ -1,7 +1,17 @@
 import React from 'react';
+import axios from 'axios';
 
-
-function House(name, address, city, state, zip){
+// function deleteHouse(id) {
+//   console.log('deleted')
+//   axios.delete(`/api/houses/:${id}`)
+//   .then(res => {
+//     console.log(res);
+//     console.log(res.data);
+//   })
+//   .catch(err => console.log('error', err))
+// }
+function House(name, address, city, state, zip, id){
+  
      return (
       <div>
           <p>{name}</p>
@@ -9,7 +19,7 @@ function House(name, address, city, state, zip){
           <p>{city}</p>
           <p>{state}</p>
           <p>{zip}</p>
-          <div><button>Delete</button></div>
+          <div><button onClick={}>Delete</button></div>
      </div>
     );
   }

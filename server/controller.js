@@ -11,7 +11,14 @@ function addProperty(req, res){
     .then(response => res.status(200).send(response))
     .catch(err=> res.status(500).send(err))
 }
+function removeProperty(req, res){
+    const db = req.app.get('db');
+    db.remove_property(req.params.id)
+    .then(response => res.status(200).send(response))
+    .catch(err => console.log('something happened that was not right', err))
+}
 module.exports ={
     getHouses,
-    addProperty
+    addProperty,
+    removeProperty
 }

@@ -42,7 +42,8 @@ class Dashboard extends Component {
       const city = e.city;
       const geographicState = e.location_state;
       const zip = e.zip_code;
-    return House(name, address, city, geographicState, zip )
+      const id = e.id;
+    return House(name, address, city, geographicState, zip, id )
     }
      
       )

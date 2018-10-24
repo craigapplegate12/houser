@@ -4,7 +4,7 @@ const {json} = require('body-parser')
 const app = express()
 const massive = require('massive')
 const port = 5001;
-const {getHouses, addProperty} = require('./controller')
+const {getHouses, addProperty, removeProperty} = require('./controller')
 
 
 app.use(json())
@@ -15,7 +15,7 @@ massive(process.env.DATABASE_STRING)
 
 
 app.get('/api/houses', getHouses)
-app.delete('/api/houses/:id',)
+app.delete('/api/houses/:id', removeProperty)
 app.post('/api/houses', addProperty)
 
 

@@ -3,6 +3,7 @@ import './House.js'
 import House from './House.js';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import './Dashboard.css'
 
 
 class Dashboard extends Component {
@@ -13,6 +14,7 @@ class Dashboard extends Component {
         houses: []
     }
     this.getHouses = this.getHouses.bind(this);
+    this.deleteHouse= this.deleteHouse.bind(this);
   }
   componentDidMount(){
     this.getHouses()
@@ -35,6 +37,16 @@ class Dashboard extends Component {
   // }
   // }
 
+  deleteHouse = (id) => {
+     console.log(id)
+  //   // axios.delete(`/api/houses/${id}`)
+  //   // .then(res => {
+  //   //   console.log(res);
+  //   //   console.log(res.data);
+  //   // })
+  //   // .catch(err => console.log('error', err))
+  }
+
   render() {
     const properties = this.state.houses.map(e=> {
       const name= e.property_name;
@@ -42,17 +54,22 @@ class Dashboard extends Component {
       const city = e.city;
       const geographicState = e.location_state;
       const zip = e.zip_code;
-      const id = e.id;
-    return House(name, address, city, geographicState, zip, id )
+      const deleteHouseFN = this.deleteHouse(e.id)
+      
+    return House(name, address, city, geographicState, zip, deleteHouseFN )
     }
      
       )
     return (
-      <div>
-          Dashboard
+      <div className='dash'>
+         <div className='dash_heading'>Dashboard
+         <Link to={'/wizard'}><button className='dash_subheader_button'>Add new property</button></Link></div> 
           {console.log(this.state)}
+          <div className='dash_prop_container'>
+          <div className='dash_prop_heading'>Home Listings</div>
           {properties}
-          <div><Link to={'/wizard'}><button >Add new property</button></Link></div>
+          </div>
+    
           
      </div>
     );

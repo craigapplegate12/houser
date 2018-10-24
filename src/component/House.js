@@ -1,25 +1,20 @@
 import React from 'react';
-import axios from 'axios';
 
-// function deleteHouse(id) {
-//   console.log('deleted')
-//   axios.delete(`/api/houses/:${id}`)
-//   .then(res => {
-//     console.log(res);
-//     console.log(res.data);
-//   })
-//   .catch(err => console.log('error', err))
-// }
-function House(name, address, city, state, zip, id){
-  
+import './House.css'
+
+
+function House(name, address, city, state, zip, deleteFunction){
+
      return (
-      <div>
-          <p>{name}</p>
-          <p>{address}</p>
-          <p>{city}</p>
-          <p>{state}</p>
-          <p>{zip}</p>
-          <div><button onClick={}>Delete</button></div>
+       <div className='House'>
+      <div className="house_detail_box">
+          <p> Property Name: {name}</p>
+          <p> Address: {address}</p>
+          <p> City: {city}</p>
+          <p>State: {state}</p>
+          <p>Zip: {zip}</p>
+          <button className='house_delete_button'>Delete</button>
+     </div>
      </div>
     );
   }

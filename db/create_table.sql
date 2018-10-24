@@ -1,0 +1,1 @@
+Create Table Houser (ID Serial primary key, property_name TEXT, property_address TEXT,city TEXT, location_state TEXT, zip_code  INTEGER);

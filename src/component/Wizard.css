@@ -1,0 +1,41 @@
+.wiz{
+    width: 50vw;
+    background-color: #e5f4ec;
+    position: relative;
+  
+}
+.wiz_heading {
+    font-size: 30px;
+    margin: 20px;
+    font-weight: 700;
+}
+.wiz_subheader {
+  
+    display: flex;
+   
+    justify-content: space-between;
+}
+.wiz_subheader_button {
+    margin: 20px;
+    border: none;
+    padding: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    background-color: #fec2c2;
+}
+.wiz_input_box {
+    margin: 10px;
+    float: left;
+    font-size: 18px;
+    font-weight: 700;
+}
+.wiz_button {
+    margin: 20px;
+    background-color: #8aea92;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import './Wizard.css'
 
 
 class Wizard extends Component {
@@ -70,15 +71,15 @@ class Wizard extends Component {
 //<input type="text" value={this.state.imageURL} onChange={this.handleChangeURL}/>
   render() {
     return (
-      <div>
-        
-          <input type="text" value={this.state.name} onChange={this.changeName} placeholder='Name'></input>
-          <input type="text" value={this.state.address} onChange={this.changeAddress} placeholder='Address'></input>
-          <input type="text" value={this.state.city} onChange={this.changeCity} placeholder='City'></input>
-          <input type="text" value={this.state.geographicState} onChange={this.changeGeographicState} placeholder='State'></input>
-          <input type="text" value={this.state.zipCode} onChange={this.changeZipCode} placeholder='Zip Code'></input>
-          <div><Link to={'/'}><button onClick={this.submitProperty}>Complete</button></Link>  </div>
-          <div><Link to={'/'}><button onClick={this.clearState}>Cancel</button></Link>  </div>
+      <div className='wiz'>
+          <div className='wiz_subheader'><h2 className='wiz_heading'>Add New Listing</h2> <Link to={'/'}><button className='wiz_subheader_button' onClick={this.clearState}>Cancel</button></Link></div>
+          <div className='wiz_input_box'><p>Property Name</p><input type="text" value={this.state.name} onChange={this.changeName} placeholder='Name'></input></div>
+          <div className='wiz_input_box'><p>Address</p><input type="text" value={this.state.address} onChange={this.changeAddress} placeholder='Address'></input></div>
+          <div className='wiz_input_box'><p>City</p><input type="text" value={this.state.city} onChange={this.changeCity} placeholder='City'></input></div>
+          <div className='wiz_input_box'><p>State</p><input type="text" value={this.state.geographicState} onChange={this.changeGeographicState} placeholder='State'></input></div>
+          <div className='wiz_input_box'><p>Zip</p><input type="text" value={this.state.zipCode} onChange={this.changeZipCode} placeholder='Zip Code'></input></div>
+          <div><Link to={'/'}><button className='wiz_button' onClick={this.submitProperty}>Complete</button></Link>  </div>
+          
       </div>
     );
   }
